@@ -34,7 +34,7 @@ public class AuthController {
         this.jwtGenerator = jwtGenerator;
     }
 
-    @PostMapping("login")
+    @PostMapping("Signin")
     public ResponseEntity<AuthResponseDTO> login(@RequestBody LoginDto loginDto){
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
@@ -45,7 +45,7 @@ public class AuthController {
         return new ResponseEntity<>(new AuthResponseDTO(token), HttpStatus.OK);
     }
 
-    @PostMapping("register")
+    @PostMapping("Signup")
     public ResponseEntity<String> register(@RequestBody RegisterDto registerDto){
         return new ResponseEntity<>(userService.createUser(registerDto), HttpStatus.OK);
     }
